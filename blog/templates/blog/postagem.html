@@ -37,6 +37,7 @@
     <p>{{postagem.clube_futebol}}</p>
     <br><br><form action="{% url 'update' postagem.id %}"><input type="submit" value="Update" /></form>
     <br><form action="{% url 'home' %}"><input type="submit" value="Back" /></form>
+    <br><form action="{% url 'delete' postagem.id %}"><input type="submit" value="Delete" /></form>
 
     
 
