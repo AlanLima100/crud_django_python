@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagem-jogador-futebol-Transparente-Download-png (1).ico" type="image/x-icon">
+    <title>Update</title>
+    <style>
+            
+        body{
+            background-image: linear-gradient(to right, #034159, #025951, #02735E, #038C3E, #0CF25D  );
+        }
+        h1{ 
+            
+            color: #ccf0ed;
+            text-align:left;
+            text-shadow: 5px 5px 2px #034159;
+        }
+        input{
+            background-color: #038C3E;
+            color: black;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Update da postagem</h1>
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <input type="submit" value="Save">
+    </form>
+    <br><form action="{% url 'leitura_postagem' postagem.id %}"><input type="submit" value="Back" /></form>
+    <br><form action="{% url 'delete' postagem.id %}"><input type="submit" value="Delete" /></form>
+    
+    
+</body>
+</html>

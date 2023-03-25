@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagem-jogador-futebol-Transparente-Download-png (1).ico" type="image/x-icon">
+    <title>Home</title>
+    
+    
+
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 70%;
+        }
+        th, td {
+            text-align: center;
+            padding: 8px;
+        }
+        tr:nth-child(even){background-color:#78eba1;}
+
+        th{
+            background-color: #038C3E;
+            color: black;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input{
+            background-color: #038C3E;
+            color: black;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        body{
+            background-image: linear-gradient(to right, #034159, #025951, #02735E, #038C3E, #0CF25D  );
+        }
+        h1{ 
+            
+            color: #ccf0ed;
+            text-align:left;
+            text-shadow: 5px 5px 2px #034159;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <h1>Cadastro dos times de Futebol Brasileiro</h1>
+
+    <br>
+    <table>
+        <tr>
+            <th>Titulo</th> 
+            <th>Times da Série A</th>
+            <th>Jogador favorito</th>
+            <th>Data de Publicação</th>
+        </tr>
+        
+        {% for  postagem in postagens %}
+            
+            <tr>
+                <td><a href="{% url 'leitura_postagem' postagem.id %}">{{ postagem.titulo }}</td></a>
+                
+                <td>{{ postagem.clube_futebol }}</td>
+                <td>{{ postagem.jogador_favorito }}</td>
+                <td>{{ postagem.data_publicacao }}</td>
+                
+            
+            </tr>
+
+        {% endfor %}
+    
+    </table>
+
+    <br><br><form action="{% url 'create' %}"><input type="submit" value="Create">
+    </form>
+
+
+</body>
+</html>
